@@ -1,11 +1,50 @@
-variable "cidr_block" {
-  type        = string
-  description = "IPv4 CIDR to assign to the VPC"
+######################################## names, labels, tags ########################################
+variable "labels" {
+  type = object({
+    prefix    = string
+    stack     = string
+    component = string
+    env       = string
+  })
+  description = "Minimum required map of labels(tags) for creating aws resources"
 }
 
 variable "tags" {
-  type    = map(string)
-  default = {}
+  type        = map(string)
+  description = "Additional tags"
+  default     = {}
+}
+
+variable "vpc_name" {
+  type        = string
+  description = <<-EOT
+      optionally define a custom value for the vpc.
+      By default, it is defined as a construction from var.labels
+    EOT
+  default     = "default"
+}
+
+variable "igw_name" {
+  type        = string
+  description = <<-EOT
+      optionally define a custom value for the internet gateway name.
+      By default, it is defined as a construction from var.labels
+    EOT
+  default     = "default"
+}
+
+variable "dsg_name" {
+  type        = string
+  description = <<-EOT
+      optionally define a custom value for the default security group name.
+      By default, it is defined as a construction from var.labels
+    EOT
+  default     = "default"
+}
+
+variable "cidr_block" {
+  type        = string
+  description = "IPv4 CIDR to assign to the VPC"
 }
 
 variable "default_security_group_deny_all" {

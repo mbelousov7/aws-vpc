@@ -32,7 +32,11 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_cidr_block"></a> [cidr\_block](#input\_cidr\_block) | IPv4 CIDR to assign to the VPC | `string` | n/a | yes |
 | <a name="input_default_security_group_deny_all"></a> [default\_security\_group\_deny\_all](#input\_default\_security\_group\_deny\_all) | When `true`, manage the default security group and remove all rules, disabling all ingress and egress.<br>When `false`, do not manage the default security group, allowing it to be managed by another component | `bool` | `true` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | n/a | `map(string)` | `{}` | no |
+| <a name="input_dsg_name"></a> [dsg\_name](#input\_dsg\_name) | optionally define a custom value for the default security group name.<br>By default, it is defined as a construction from var.labels | `string` | `"default"` | no |
+| <a name="input_igw_name"></a> [igw\_name](#input\_igw\_name) | optionally define a custom value for the internet gateway name.<br>By default, it is defined as a construction from var.labels | `string` | `"default"` | no |
+| <a name="input_labels"></a> [labels](#input\_labels) | Minimum required map of labels(tags) for creating aws resources | <pre>object({<br>    prefix    = string<br>    stack     = string<br>    component = string<br>    env       = string<br>  })</pre> | n/a | yes |
+| <a name="input_tags"></a> [tags](#input\_tags) | Additional tags | `map(string)` | `{}` | no |
+| <a name="input_vpc_name"></a> [vpc\_name](#input\_vpc\_name) | optionally define a custom value for the vpc.<br>By default, it is defined as a construction from var.labels | `string` | `"default"` | no |
 
 ## Outputs
 

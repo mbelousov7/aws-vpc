@@ -36,6 +36,7 @@ resource "aws_default_security_group" "default" {
 }
 
 resource "aws_internet_gateway" "default" {
+  count  = var.igw_enable ? 1 : 0
   vpc_id = aws_vpc.default.id
   tags = merge(
     var.labels,

@@ -24,6 +24,14 @@ variable "vpc_name" {
   default     = "default"
 }
 
+variable "igw_enable" {
+  type        = bool
+  description = <<-EOT
+      optionally define if it not necessary to deploy internet gateway for vpc
+    EOT
+  default     = true
+}
+
 variable "igw_name" {
   type        = string
   description = <<-EOT

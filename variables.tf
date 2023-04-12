@@ -24,6 +24,22 @@ variable "vpc_name" {
   default     = "default"
 }
 
+
+variable "enable_dns_hostnames" {
+  type        = bool
+  description = <<-EOT
+      Set `true` to enable
+       [DNS hostnames](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-hostnames) in the VPC
+    EOT
+  default     = true
+}
+
+variable "enable_dns_support" {
+  type        = bool
+  description = "Set `true` to enable DNS resolution in the VPC through the Amazon provided DNS server"
+  default     = true
+}
+
 variable "igw_enable" {
   type        = bool
   description = <<-EOT
